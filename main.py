@@ -11,8 +11,8 @@ async def main():
 
     # Parse arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("hotel_ids")
-    parser.add_argument("destination_ids")
+    parser.add_argument("hotel_ids", default="none", nargs="?")
+    parser.add_argument("destination_ids", default="none", nargs="?")
     args = parser.parse_args()
     hotel_ids = hotel_ids_args_to_list(args.hotel_ids)
     destination_ids = destination_ids_args_to_list(args.destination_ids)
