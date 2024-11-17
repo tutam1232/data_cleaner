@@ -1,13 +1,14 @@
 from typing import List
 from models.hotel import Hotel
 import json
-def merge_hotels(hotels: List[Hotel]) -> Hotel:
+
+def _merge_hotels(hotels: List[Hotel]) -> Hotel:
     merged_hotel = hotels[0]
     for hotel in hotels[1:]:
         merged_hotel.merge(hotel)
     return merged_hotel
 
-def get_sort_key(hotel: Hotel, hotel_ids_array: List[str], destination_ids_array: List[int]):
+def _get_sort_key(hotel: Hotel, hotel_ids_array: List[str], destination_ids_array: List[int]):
     has_priority_hotel_id = hotel.id in hotel_ids_array
     has_priority_dest_id = hotel.destination_id in destination_ids_array
     
@@ -30,27 +31,30 @@ def get_sort_key(hotel: Hotel, hotel_ids_array: List[str], destination_ids_array
     else:
         return (hotel.id, hotel.destination_id)
 
-def sort_hotels(hotels: List[Hotel], hotel_ids_array: List[str], destination_ids_array: List[int]) -> List[Hotel]: 
+def _sort_hotels(hotels: List[Hotel], hotel_ids_array: List[str], destination_ids_array: List[int]) -> List[Hotel]: 
     return sorted(
         hotels,
-        key=lambda hotel: get_sort_key(hotel, hotel_ids_array, destination_ids_array)
+        key=lambda hotel: _get_sort_key(hotel, hotel_ids_array, destination_ids_array)
     )
 
-def merge_hotels_list(hotels: List[Hotel]) -> List[Hotel]:
+def merge_hotels_list(hotels: List[Hotel], hotel_ids_array: List[str], destination_ids_array: List[int]) -> List[Hotel]:
+
     if not hotels:
-        return []
+        return []    
+    
         
     result = []
     current_group = []
+    sorted_hotels = _sort_hotels(hotels, hotel_ids_array, destination_ids_array)
     
-    for hotel in hotels:
+    for hotel in sorted_hotels:
         if not current_group or (hotel.id == current_group[0].id and hotel.destination_id == current_group[0].destination_id):
             current_group.append(hotel)
         else:
-            result.append(merge_hotels(current_group))
+            result.append(_merge_hotels(current_group))
             current_group = [hotel]
             
-    result.append(merge_hotels(current_group))
+    result.append(_merge_hotels(current_group))
     return result
 
 

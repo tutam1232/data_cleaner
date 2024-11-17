@@ -4,7 +4,7 @@ from suppliers.acme import AcmeSupplier
 from suppliers.patagonie import PatagonieSupplier
 from suppliers.paperflies import PaperfliesSupplier
 
-from services.hotel_services import sort_hotels, merge_hotels_list, output_hotels_to_json
+from services.hotel_services import  merge_hotels_list, output_hotels_to_json
 from utils.utils import args_to_list, str_arr_to_int_arr
     
 async def main():
@@ -26,9 +26,8 @@ async def main():
         parsed_hotels = supplier.parse(fetched_hotels)
         all_hotels.extend(parsed_hotels)
 
-    # Sort and merge hotels
-    sorted_hotels = sort_hotels(all_hotels, hotel_ids, destination_ids)
-    merged_hotels = merge_hotels_list(sorted_hotels)
+    # Merge hotels
+    merged_hotels = merge_hotels_list(all_hotels, hotel_ids, destination_ids)
 
     # Output to json
     output_hotels_to_json(merged_hotels)
