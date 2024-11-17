@@ -5,7 +5,7 @@ from suppliers.patagonie import PatagonieSupplier
 from suppliers.paperflies import PaperfliesSupplier
 
 from services.hotel_services import  merge_hotels_list, output_hotels_to_json
-from utils.utils import args_to_list, str_arr_to_int_arr
+from utils.argument_util import hotel_ids_args_to_list, destination_ids_args_to_list
     
 async def main():
 
@@ -14,8 +14,8 @@ async def main():
     parser.add_argument("hotel_ids")
     parser.add_argument("destination_ids")
     args = parser.parse_args()
-    hotel_ids = args_to_list(args.hotel_ids)
-    destination_ids = str_arr_to_int_arr(args_to_list(args.destination_ids))
+    hotel_ids = hotel_ids_args_to_list(args.hotel_ids)
+    destination_ids = destination_ids_args_to_list(args.destination_ids)
 
 
     # Fetch hotels and sanitize data

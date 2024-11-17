@@ -1,7 +1,7 @@
 from .base import BaseSupplier
 from typing import List
 from models.hotel import Hotel
-from utils.utils import sanitize_string
+from utils.amenities_util import sanitize_string
 
 class AcmeSupplier(BaseSupplier):
 

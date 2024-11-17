@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from typing import  Set
-from utils.utils import sanitize_string
+from utils.amenities_util import sanitize_string
 
 @dataclass
 class Amenities:
