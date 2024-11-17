@@ -1,7 +1,7 @@
 from .base import BaseSupplier
+from typing import List
 from models.hotel import Hotel
 from utils.utils import sanitize_string
-from typing import List
 
 class AcmeSupplier(BaseSupplier):
 
@@ -11,21 +11,21 @@ class AcmeSupplier(BaseSupplier):
         self.id_key = "Id"
         self.destination_id_key = "DestinationId"
 
-    def parse(self, data: list[dict]) -> List[Hotel]:
+    def parse(self, hotels: List[dict]) -> List['Hotel']:
         cleaned_data = []
-        for hotel in data:
+        for hotel in hotels:
             cleaned_hotel = {
                 "id": hotel.get(self.id_key,""),
                 "destination_id": hotel.get(self.destination_id_key,None),
-                "name": hotel.get("Name",""),
+                "name": hotel.get("Name","").strip(),
                 "location":{
                     "lat": hotel.get("Latitude", None),
                     "lng": hotel.get("Longitude",None),
-                    "address": hotel.get("Address",""),
-                    "city": hotel.get("City",""),
-                    "country": hotel.get("Country",""),
+                    "address": hotel.get("Address","").strip(),
+                    "city": hotel.get("City","").strip(),
+                    "country": hotel.get("Country","").strip(),
                 },
-                "description": hotel.get("Description",""),
+                "description": hotel.get("Description","").strip(),
                 "amenities": {
                     "general": map(sanitize_string, hotel.get("Facilities",[])),
                     "room": []

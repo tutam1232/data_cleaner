@@ -4,7 +4,7 @@ from suppliers.acme import AcmeSupplier
 from suppliers.patagonie import PatagonieSupplier
 from suppliers.paperflies import PaperfliesSupplier
 
-from services.hotel_services import sort_hotels, merge_hotels_list, print_hotels, output_hotels_to_json
+from services.hotel_services import sort_hotels, merge_hotels_list, output_hotels_to_json
 from utils.utils import args_to_list, str_arr_to_int_arr
     
 async def main():

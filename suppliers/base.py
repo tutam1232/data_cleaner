@@ -1,8 +1,7 @@
 from abc import ABC
-from models.hotel import Hotel
 from typing import List
 import aiohttp
-
+from models.hotel import Hotel
 
 class BaseSupplier(ABC):
 
@@ -40,6 +39,6 @@ class BaseSupplier(ABC):
         )
 
         return result_alter_filter
-
-    def parse(self, data) -> Hotel:
+    
+    def parse(self, hotels: List[dict]) -> List['Hotel']:
         pass
