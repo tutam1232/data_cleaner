@@ -17,31 +17,31 @@ class PaperfliesSupplier(BaseSupplier):
             cleaned_hotel = {
                 "id": hotel.get(self.id_key,""),
                 "destination_id": hotel.get(self.destination_id_key,None),
-                "name": hotel.get("hotel_name","").strip(),
+                "name": (hotel.get("hotel_name") or "").strip(),
                 "location":{    
                     "lat": None,
                     "lng": None,
-                    "address": hotel.get("location", {}).get("address", "").strip(),
-                    "country": hotel.get("location", {}).get("country", "").strip(),
-                    "city": hotel.get("location", {}).get("city", "").strip()
+                    "address": (hotel.get("location", {}).get("address") or "").strip(),
+                    "country": (hotel.get("location", {}).get("country") or "").strip(),
+                    "city": (hotel.get("location", {}).get("city") or "").strip()
                 },
-                "description": hotel.get("details","").strip(),
+                "description": (hotel.get("details") or "").strip(),
                 "amenities": {
-                    "general": map(sanitize_string, hotel.get("amenities",{}).get("general",[])),
-                    "room": map(sanitize_string, hotel.get("amenities",{}).get("room",[]))
+                    "general": map(sanitize_string, (hotel.get("amenities") or {}).get("general",[])),
+                    "room": map(sanitize_string, (hotel.get("amenities") or {}).get("room",[]))
                 },
                 "images": {
                     "rooms": [
-                        {"link": img["link"], "description": img["caption"].strip()} 
-                        for img in hotel.get("images", {}).get("rooms", [])
+                        {"link": img["link"], "description": (img["caption"] or "").strip()} 
+                        for img in (hotel.get("images") or {}).get("rooms", [])
                     ],
                     "site": [
-                        {"link": img["link"], "description": img["caption"].strip()} 
-                        for img in hotel.get("images", {}).get("site", [])
+                        {"link": img["link"], "description": (img["caption"] or "").strip()} 
+                        for img in (hotel.get("images") or {}).get("site", [])
                     ],
                     "amenities": [
-                        {"link": img["link"], "description": img["caption"].strip()} 
-                        for img in hotel.get("images", {}).get("amenities", [])
+                        {"link": img["link"], "description": (img["caption"] or "").strip()} 
+                        for img in (hotel.get("images") or {}).get("amenities", [])
                     ]
 
                 },

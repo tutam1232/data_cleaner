@@ -17,17 +17,17 @@ class AcmeSupplier(BaseSupplier):
             cleaned_hotel = {
                 "id": hotel.get(self.id_key,""),
                 "destination_id": hotel.get(self.destination_id_key,None),
-                "name": hotel.get("Name","").strip(),
+                "name": (hotel.get("Name") or "").strip(),
                 "location":{
                     "lat": hotel.get("Latitude", None),
                     "lng": hotel.get("Longitude",None),
-                    "address": hotel.get("Address","").strip(),
-                    "city": hotel.get("City","").strip(),
-                    "country": hotel.get("Country","").strip(),
+                    "address": (hotel.get("Address") or "").strip(),
+                    "city": (hotel.get("City") or "").strip(),
+                    "country": (hotel.get("Country") or "").strip(),
                 },
-                "description": hotel.get("Description","").strip(),
+                "description": (hotel.get("Description") or "").strip(),
                 "amenities": {
-                    "general": map(sanitize_string, hotel.get("Facilities",[])),
+                    "general": map(sanitize_string, hotel.get("Facilities") or []),
                     "room": []
                 },
                 "images": {

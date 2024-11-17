@@ -17,31 +17,31 @@ class PatagonieSupplier(BaseSupplier):
             cleaned_hotel = {
                 "id": hotel.get(self.id_key,""),
                 "destination_id": hotel.get(self.destination_id_key,None),
-                "name": hotel.get("name","").strip(),
+                "name": (hotel.get("name") or "").strip(),
                 "location":{
                     "lat": hotel.get("lat",None),
                     "lng": hotel.get("lng",None),
-                    "address": hotel.get("address","").strip(),
+                    "address": (hotel.get("address") or "").strip(),
                     "city": "",
                     "country": ""
                 },
-                "description": hotel.get("info","").strip(),
+                "description": (hotel.get("info") or "").strip(),
                 "amenities": {
-                    "general": map(sanitize_string, hotel.get("amenities",[])),
+                    "general": map(sanitize_string, hotel.get("amenities") or []),
                     "room": []
                 },
                 "images": {
                     "rooms": [
-                        {"link": img["url"], "description": img["description"].strip()} 
-                        for img in hotel.get("images", {}).get("rooms", [])
+                        {"link": img["url"], "description": (img["description"] or "").strip()} 
+                        for img in (hotel.get("images") or {}).get("rooms", [])
                     ],
                     "site": [
-                        {"link": img["url"], "description": img["description"].strip()} 
-                        for img in hotel.get("images", {}).get("site", [])
+                        {"link": img["url"], "description": (img["description"] or "").strip()} 
+                        for img in (hotel.get("images") or {}).get("site", [])
                     ],
                     "amenities": [
-                        {"link": img["url"], "description": img["description"].strip()} 
-                        for img in hotel.get("images", {}).get("amenities", [])
+                        {"link": img["url"], "description": (img["description"] or "").strip()} 
+                        for img in (hotel.get("images") or {}).get("amenities", [])
                     ]
                 },
                 "booking_conditions": []

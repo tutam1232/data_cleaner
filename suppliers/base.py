@@ -12,19 +12,26 @@ class BaseSupplier(ABC):
 
     def _get_sort_key(self, hotel: dict, hotel_ids_array: List[str], destination_ids_array: List[int]):
         id = hotel.get(self.id_key,None)
-        if id in hotel_ids_array:
+        has_priority_hotel_id = id in hotel_ids_array
+        if has_priority_hotel_id:
             hotel_id_index = hotel_ids_array.index(id)
         else:
             hotel_id_index = len(hotel_ids_array)
             
 
         destination_id = hotel.get(self.destination_id_key,None)
-        if destination_id in destination_ids_array:
+        has_priority_dest_id = destination_id in destination_ids_array
+        if has_priority_dest_id:
             dest_id_index = destination_ids_array.index(destination_id)
         else:
             dest_id_index = len(destination_ids_array) 
             
-        return (hotel_id_index, dest_id_index)
+        if has_priority_hotel_id:
+            return (hotel_id_index, dest_id_index, destination_id)
+        elif has_priority_dest_id:
+            return (dest_id_index, hotel_id_index, id)
+        else:
+            return (id, destination_id)
 
     async def fetch(self, hotel_ids_array: List[str], destination_ids_array: List[int]):
         results = None

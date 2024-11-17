@@ -8,19 +8,29 @@ def merge_hotels(hotels: List[Hotel]) -> Hotel:
     return merged_hotel
 
 def get_sort_key(hotel: Hotel, hotel_ids_array: List[str], destination_ids_array: List[int]):
-    if hotel.id in hotel_ids_array:
+    has_priority_hotel_id = hotel.id in hotel_ids_array
+    has_priority_dest_id = hotel.destination_id in destination_ids_array
+    
+    if has_priority_hotel_id:
         hotel_id_index = hotel_ids_array.index(hotel.id)
     else:
         hotel_id_index = len(hotel_ids_array)
+
             
-    if hotel.destination_id in destination_ids_array:
+    if has_priority_dest_id:
         dest_id_index = destination_ids_array.index(hotel.destination_id)
     else:
-        dest_id_index = len(destination_ids_array) 
-            
-    return (hotel_id_index, dest_id_index)
+        dest_id_index = len(destination_ids_array)
 
-def sort_hotels(hotels: List[Hotel], hotel_ids_array: List[str], destination_ids_array: List[int]) -> List[Hotel]:    
+
+    if has_priority_hotel_id:
+        return (hotel_id_index, dest_id_index, hotel.destination_id)
+    elif has_priority_dest_id:
+        return (dest_id_index, hotel_id_index, hotel.id)
+    else:
+        return (hotel.id, hotel.destination_id)
+
+def sort_hotels(hotels: List[Hotel], hotel_ids_array: List[str], destination_ids_array: List[int]) -> List[Hotel]: 
     return sorted(
         hotels,
         key=lambda hotel: get_sort_key(hotel, hotel_ids_array, destination_ids_array)
