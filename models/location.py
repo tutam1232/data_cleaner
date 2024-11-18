@@ -14,7 +14,7 @@ class Location:
         self.address = data.get("address","")
         self.city = data.get("city","")
         self.country = data.get("country","")
-    def get_data(self):
+    def get_data(self) -> dict:
         return {
             "lng": self.lng,
             "lat": self.lat,
@@ -23,7 +23,7 @@ class Location:
             "country": self.country
         }
     
-    def merge(self, other: 'Location'):
+    def merge(self, other: 'Location') -> None:
         if other.lat is not None:
             self.lat = other.lat
         if other.lng is not None:

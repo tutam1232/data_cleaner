@@ -11,13 +11,13 @@ class Amenities:
         self.general = set(map(sanitize_string, data.get("general", [])))
         self.room = set(map(sanitize_string, data.get("room", [])))
 
-    def get_data(self):
+    def get_data(self) -> dict:
         return {
             "general": list(self.general),
             "room": list(self.room)
         }
     
-    def merge(self, other: 'Amenities'):
+    def merge(self, other: 'Amenities') -> None:
         self.general.update(other.general)
         self.room.update(other.room)
         self.general = set(self.general) - set(self.room)

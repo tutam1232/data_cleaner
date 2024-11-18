@@ -58,7 +58,7 @@ def merge_hotels_list(hotels: List[Hotel], hotel_ids_array: List[str], destinati
     return result
 
 
-def output_hotels_to_json(hotels: List[Hotel]):
+def output_hotels_to_json(hotels: List[Hotel]) -> None:
     with open("output.json", "w") as file:
         json.dump(hotels, file, default=lambda o: o.get_data(), indent=4)
 

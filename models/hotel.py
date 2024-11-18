@@ -32,7 +32,7 @@ class Hotel:
 
 
 
-    def get_data(self):
+    def get_data(self) -> dict:
         return {
             "id": self.id,
             "destination_id": self.destination_id,
@@ -44,7 +44,7 @@ class Hotel:
             "booking_conditions": list(self.booking_conditions)
         }
     
-    def merge(self, other: 'Hotel'):
+    def merge(self, other: 'Hotel') -> None:
         if(self.id != other.id or self.destination_id != other.destination_id):
             return
         if len(other.name) > len(self.name):

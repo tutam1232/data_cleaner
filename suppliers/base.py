@@ -39,7 +39,7 @@ class BaseSupplier(ABC):
         else:
             return (id, destination_id)
 
-    async def fetch(self, hotel_ids_array: List[str], destination_ids_array: List[int]):
+    async def fetch(self, hotel_ids_array: List[str], destination_ids_array: List[int]) -> List[dict]:
         results = None
         async with aiohttp.ClientSession() as session:
             async with session.get(self.url) as response:
