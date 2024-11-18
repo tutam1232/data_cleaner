@@ -6,10 +6,10 @@ from utils.amenities_util import sanitize_string
 class PatagonieSupplier(BaseSupplier):
 
     def __init__(self):
-        super().__init__()
-        self.url = "https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia"
-        self.id_key = "id"
-        self.destination_id_key = "destination"
+        if not hasattr(self, "url") or self.url == "":  
+            self.url = "https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia"
+            self.id_key = "id"
+            self.destination_id_key = "destination"
 
     def parse(self, hotels: List[dict]) -> List['Hotel']:
         cleaned_data = []

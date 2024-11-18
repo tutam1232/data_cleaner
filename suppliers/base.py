@@ -5,10 +5,16 @@ from models.hotel import Hotel
 
 class BaseSupplier(ABC):
 
-    def __init__(self):
-        self.url = ""
-        self.id_key = ""
-        self.destination_id_key = ""
+    __instances = {}
+
+    def __new__(cls):
+        if cls not in cls.__instances:
+            cls.__instances[cls] = super().__new__(cls)
+            cls.__instances[cls].url = ""
+            cls.__instances[cls].id_key = ""
+            cls.__instances[cls].destination_id_key = ""
+        return cls.__instances[cls]
+
 
     def _get_sort_key(self, hotel: dict, hotel_ids_array: List[str], destination_ids_array: List[int]):
         id = hotel.get(self.id_key,None)

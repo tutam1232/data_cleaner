@@ -6,10 +6,10 @@ from utils.amenities_util import sanitize_string
 class PaperfliesSupplier(BaseSupplier):
 
     def __init__(self):
-        super().__init__()
-        self.url = "https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies"
-        self.id_key = "hotel_id"
-        self.destination_id_key = "destination_id"
+        if not hasattr(self, "url") or self.url == "":  
+            self.url = "https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies"
+            self.id_key = "hotel_id"
+            self.destination_id_key = "destination_id"
 
     def parse(self, hotels: List[dict]) -> List['Hotel']:
         cleaned_data = []
