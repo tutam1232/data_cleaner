@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 from typing import List
 import aiohttp
 from models.hotel import Hotel
@@ -47,5 +47,6 @@ class BaseSupplier(ABC):
 
         return result_alter_filter
     
+    @abstractmethod
     def parse(self, hotels: List[dict]) -> List['Hotel']:
         pass

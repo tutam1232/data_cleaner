@@ -14,23 +14,23 @@
         "amenities": {
             "general": [
                 "childcare",
-                "bath tub",
+                "wifi",
                 "outdoor pool",
                 "concierge",
-                "bar",
-                "breakfast",
-                "business center",
-                "pool",
+                "bath tub",
                 "dry cleaning",
+                "breakfast",
+                "pool",
+                "business center",
                 "parking",
-                "wifi"
+                "bar"
             ],
             "room": [
-                "hair dryer",
                 "bathtub",
+                "hair dryer",
+                "aircon",
                 "tv",
-                "minibar",
-                "aircon"
+                "minibar"
             ]
         },
         "images": {
@@ -80,21 +80,21 @@
         "description": "This sleek high-rise property is 10 minutes' walk from Shinjuku train station, 6 minutes' walk from the Tokyo Metropolitan Government Building and 3 km from Yoyogi Park. The polished rooms offer Wi-Fi and flat-screen TVs, plus minibars, sitting areas, and tea and coffeemaking facilities. Suites add living rooms, and access to a club lounge serving breakfast and cocktails. A free shuttle to Shinjuku station is offered. There's a chic Chinese restaurant, a sushi bar, and a grill restaurant with an open kitchen, as well as an English pub and a hip cocktail lounge. Other amenities include a gym, rooftop tennis courts, and a spa with an indoor pool.",
         "amenities": {
             "general": [
-                "bath tub",
-                "bar",
-                "breakfast",
-                "business center",
                 "indoor pool",
-                "pool",
+                "wifi",
+                "bath tub",
                 "dry cleaning",
-                "wifi"
+                "breakfast",
+                "pool",
+                "business center",
+                "bar"
             ],
             "room": [
-                "hair dryer",
                 "bathtub",
+                "hair dryer",
+                "aircon",
                 "tv",
-                "minibar",
-                "aircon"
+                "minibar"
             ]
         },
         "images": {
@@ -130,12 +130,12 @@
             ]
         },
         "booking_conditions": [
+            "When booking more than 9 rooms, different policies and additional supplements may apply.",
+            "Wired internet is available in the hotel rooms and charges are applicable. WiFi is available in the hotel rooms and charges are applicable.",
+            "Pets are not allowed.",
             "The hotel's free shuttle is offered from Bus Stop #21 in front of Keio Department Store at Shinjuku Station. It is available every 20-minutes from 08:20-21:40. The hotel's free shuttle is offered from the hotel to Shinjuku Train Station. It is available every 20-minutes from 08:12-21:52. For more details, please contact the hotel directly. At the Executive Lounge a smart casual dress code is strongly recommended. Attires mentioned below are strongly discouraged and may not permitted: - Night attire (slippers, Yukata robe, etc.) - Gym clothes/sportswear (Tank tops, shorts, etc.) - Beachwear (flip-flops, sandals, etc.) and visible tattoos. Please note that due to renovation works, the Executive Lounge will be closed from 03 January 2019 until late April 2019. During this period, guests may experience some noise or minor disturbances. Smoking preference is subject to availability and cannot be guaranteed.",
             "All children are welcome. One child under 6 years stays free of charge when using existing beds. There is no capacity for extra beds in the room.",
-            "When booking more than 9 rooms, different policies and additional supplements may apply.",
-            "Pets are not allowed.",
-            "Private parking is possible on site (reservation is not needed) and costs JPY 1500 per day.",
-            "Wired internet is available in the hotel rooms and charges are applicable. WiFi is available in the hotel rooms and charges are applicable."
+            "Private parking is possible on site (reservation is not needed) and costs JPY 1500 per day."
         ]
     },
     {
@@ -153,22 +153,22 @@
         "amenities": {
             "general": [
                 "childcare",
-                "outdoor pool",
-                "breakfast",
-                "business center",
                 "indoor pool",
+                "wifi",
+                "outdoor pool",
+                "dry cleaning",
+                "breakfast",
                 "tub",
                 "pool",
-                "dry cleaning",
-                "aircon",
-                "wifi"
+                "business center",
+                "aircon"
             ],
             "room": [
-                "hair dryer",
-                "tv",
-                "kettle",
                 "iron",
-                "coffee machine"
+                "coffee machine",
+                "kettle",
+                "hair dryer",
+                "tv"
             ]
         },
         "images": {
@@ -204,10 +204,10 @@
             ]
         },
         "booking_conditions": [
-            "Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Payment before arrival via bank transfer is required. The property will contact you after you book to provide instructions. Please note that the full amount of the reservation is due before arrival. Resorts World Sentosa will send a confirmation with detailed payment information. After full payment is taken, the property's details, including the address and where to collect keys, will be emailed to you. Bag checks will be conducted prior to entry to Adventure Cove Waterpark. === Upon check-in, guests will be provided with complimentary Sentosa Pass (monorail) to enjoy unlimited transportation between Sentosa Island and Harbour Front (VivoCity). === Prepayment for non refundable bookings will be charged by RWS Call Centre. === All guests can enjoy complimentary parking during their stay, limited to one exit from the hotel per day. === Room reservation charges will be charged upon check-in. Credit card provided upon reservation is for guarantee purpose. === For reservations made with inclusive breakfast, please note that breakfast is applicable only for number of adults paid in the room rate. Any children or additional adults are charged separately for breakfast and are to paid directly to the hotel.",
+            "All children are welcome. One child under 12 years stays free of charge when using existing beds. One child under 2 years stays free of charge in a child's cot/crib. One child under 4 years stays free of charge when using existing beds. One older child or adult is charged SGD 82.39 per person per night in an extra bed. The maximum number of children's cots/cribs in a room is 1. There is no capacity for extra beds in the room.",
             "Pets are not allowed.",
             "Free private parking is possible on site (reservation is not needed).",
-            "All children are welcome. One child under 12 years stays free of charge when using existing beds. One child under 2 years stays free of charge in a child's cot/crib. One child under 4 years stays free of charge when using existing beds. One older child or adult is charged SGD 82.39 per person per night in an extra bed. The maximum number of children's cots/cribs in a room is 1. There is no capacity for extra beds in the room.",
+            "Guests are required to show a photo identification and credit card upon check-in. Please note that all Special Requests are subject to availability and additional charges may apply. Payment before arrival via bank transfer is required. The property will contact you after you book to provide instructions. Please note that the full amount of the reservation is due before arrival. Resorts World Sentosa will send a confirmation with detailed payment information. After full payment is taken, the property's details, including the address and where to collect keys, will be emailed to you. Bag checks will be conducted prior to entry to Adventure Cove Waterpark. === Upon check-in, guests will be provided with complimentary Sentosa Pass (monorail) to enjoy unlimited transportation between Sentosa Island and Harbour Front (VivoCity). === Prepayment for non refundable bookings will be charged by RWS Call Centre. === All guests can enjoy complimentary parking during their stay, limited to one exit from the hotel per day. === Room reservation charges will be charged upon check-in. Credit card provided upon reservation is for guarantee purpose. === For reservations made with inclusive breakfast, please note that breakfast is applicable only for number of adults paid in the room rate. Any children or additional adults are charged separately for breakfast and are to paid directly to the hotel.",
             "WiFi is available in all areas and is free of charge."
         ]
     }
