@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 from models.hotel import Hotel
 import json
 
@@ -8,7 +8,7 @@ def _merge_hotels(hotels: List[Hotel]) -> Hotel:
         merged_hotel.merge(hotel)
     return merged_hotel
 
-def _get_sort_key(hotel: Hotel, hotel_ids_array: List[str], destination_ids_array: List[int]):
+def _get_sort_key(hotel: Hotel, hotel_ids_array: List[str], destination_ids_array: List[int]) -> Tuple[int, int, int]:
     has_priority_hotel_id = hotel.id in hotel_ids_array
     has_priority_dest_id = hotel.destination_id in destination_ids_array
     
@@ -29,7 +29,7 @@ def _get_sort_key(hotel: Hotel, hotel_ids_array: List[str], destination_ids_arra
     elif has_priority_dest_id:
         return (dest_id_index, hotel_id_index, hotel.id)
     else:
-        return (hotel.id, hotel.destination_id)
+        return (hotel.id, hotel.destination_id, 0)
 
 def _sort_hotels(hotels: List[Hotel], hotel_ids_array: List[str], destination_ids_array: List[int]) -> List[Hotel]: 
     return sorted(

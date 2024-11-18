@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Tuple
 import aiohttp
 from models.hotel import Hotel
 
@@ -16,7 +16,7 @@ class BaseSupplier(ABC):
         return cls.__instances[cls]
 
 
-    def _get_sort_key(self, hotel: dict, hotel_ids_array: List[str], destination_ids_array: List[int]):
+    def _get_sort_key(self, hotel: dict, hotel_ids_array: List[str], destination_ids_array: List[int]) -> Tuple[int, int, int]:
         id = hotel.get(self.id_key,None)
         has_priority_hotel_id = id in hotel_ids_array
         if has_priority_hotel_id:
@@ -37,7 +37,7 @@ class BaseSupplier(ABC):
         elif has_priority_dest_id:
             return (dest_id_index, hotel_id_index, id)
         else:
-            return (id, destination_id)
+            return (id, destination_id, 0)
 
     async def fetch(self, hotel_ids_array: List[str], destination_ids_array: List[int]) -> List[dict]:
         results = None
